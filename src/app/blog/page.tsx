@@ -1,17 +1,17 @@
 "use client";
 import BlogList from "@/components/BlogList";
 import { Waves } from "@/components/ui/waves-background";
+import { useTheme } from "@/context/theme-context";
 import blogData from "@/data/blogData.json";
 
 // Metadata is handled in layout.tsx for client components
 
 export default function BlogPage() {
+  const { theme } = useTheme();
   // Sort posts by date (newest first)
   const sortedPosts = [...blogData].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
-
-  const theme = "light";
 
   return (
     <div className="pt-20 pb-16">

@@ -4,6 +4,7 @@ import "../styles/global.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ExpandableChatWrapper } from "@/components/blocks/chatbot-wrapper";
+import { ThemeProvider } from "@/context/theme-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,12 +42,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navbar />
-         <div className="flex-1">
-          {children}
-         </div>
-         <ExpandableChatWrapper />
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          <div className="flex-1">{children}</div>
+          <ExpandableChatWrapper />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

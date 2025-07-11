@@ -1,8 +1,25 @@
 "use client";
 import { WorldMap } from "@/components/ui/world-map";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 function WorldMapComponent() {
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Simulate heavy setup or wait for data/resources
+    const timer = setTimeout(() => setIsReady(true), 500); // adjust as needed
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isReady) {
+    return (
+      <div className="flex items-center justify-center min-h-[200px]">
+        <span className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-300">har</span>
+      </div>
+    );
+  }
+
   return (
     <div className="pb-40 dark:bg-black bg-white w-full">
       <div className="max-w-7xl mx-auto text-center">

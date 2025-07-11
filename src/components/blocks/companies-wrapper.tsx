@@ -1,9 +1,27 @@
+"use client";
+
 import { Sparkles } from "@/components/ui/sparkles"
-// import { useTheme } from "next-themes"
+import { useTheme } from "@/context/theme-context"
+import { useEffect, useState } from "react";
 
 function CompaniesWrapper() {
-//   const { theme } = useTheme()
-const theme = "light";
+  const [isReady, setIsReady] = useState(false);
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsReady(true), 500); // adjust as needed
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isReady) {
+    return (
+      <div className="flex items-center justify-center min-h-[200px]">
+        <span className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-300"></span>
+      </div>
+    );
+  }
+  
+
   return (
     <div className="w-full overflow-hidden">
       <div className="mx-auto mt-32 w-full max-w-2xl">

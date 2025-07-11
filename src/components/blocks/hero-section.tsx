@@ -6,14 +6,14 @@ import { ArrowRightIcon } from "lucide-react";
 import { Mockup, MockupFrame } from "@/components/ui/mockup";
 import { Glow } from "@/components/ui/glow";
 import Image from "next/image";
-// import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/context/theme-context";
 
 interface HeroAction {
   text: string;
   href: string;
   icon?: React.ReactNode;
-  variant?: "default" | "glow";
+  variant?: "default" | "link" | "outline" | "destructive" | "secondary" | "ghost";
 }
 
 interface HeroProps {
@@ -41,9 +41,8 @@ export function HeroSection({
   actions,
   image,
 }: HeroProps) {
-  // const { resolvedTheme } = useTheme();
-  // const imageSrc = resolvedTheme === "light" ? image.light : image.dark;
-  const imageSrc = image.dark;
+  const { theme } = useTheme();
+  const imageSrc = theme === "light" ? image.light : image.dark;
 
   return (
     <section
@@ -102,7 +101,8 @@ export function HeroSection({
                   alt={image.alt}
                   width={1248}
                   height={765}
-                  priority
+                  // priority
+                  // placeholder="blur"
                 />
               </Mockup>
             </MockupFrame>

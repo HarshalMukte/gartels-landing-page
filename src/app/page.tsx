@@ -1,15 +1,29 @@
-// "use client";
+"use client";
 
 // import Image from "next/image";
-// import dynamic from "next/dynamic";
-import CompaniesWrapper from "@/components/blocks/companies-wrapper";
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/blocks/hero-section";
-import ImmersiveScrollGallery from "@/components/blocks/immersive-scroll-gallery";
-import WorldMapComponent from "@/components/blocks/worldMap-section";
-// const WorldMapComponent = dynamic(() => import("@/components/blocks/worldMap-section"));
-import { Icons } from "@/components/ui/icons";
+// import ImmersiveScrollGallery from "@/components/blocks/immersive-scroll-gallery";
+// import CompaniesWrapper from "@/components/blocks/companies-wrapper";
+// import WorldMapComponent from "@/components/blocks/worldMap-section";
 import { TextPressure } from "@/components/ui/interactive-text-pressure";
-// import { Suspense } from "react";
+import { Icons } from "@/components/ui/icons";
+
+// Dynamic imports with loader
+const WorldMapComponent = dynamic(
+  () => import("@/components/blocks/worldMap-section"),
+  { loading: () => <Loader />, ssr: false }
+);
+
+const CompaniesWrapper = dynamic(
+  () => import("@/components/blocks/companies-wrapper"),
+  { loading: () => <Loader />, ssr: false }
+);
+
+const ImmersiveScrollGallery = dynamic(
+  () => import("@/components/blocks/immersive-scroll-gallery"),
+  { loading: () => <Loader />, ssr: false }
+);
 
 export default function Home() {
   return (
@@ -34,7 +48,7 @@ export default function Home() {
             {
               text: "GitHub",
               href: "https://github.com/your-repo",
-              variant: "glow",
+              variant: "outline",
               icon: <Icons.gitHub className="h-5 w-5" />,
             },
           ]}
@@ -71,6 +85,16 @@ export default function Home() {
           className="cursor-default"
         />
       </div>
+    </div>
+  );
+}
+
+
+// Loader component
+function Loader() {
+  return (
+    <div className="flex items-center justify-center min-h-[200px]">
+      <span className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-300"></span>
     </div>
   );
 }

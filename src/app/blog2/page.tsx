@@ -2,13 +2,13 @@ import { Waves } from '@/components/ui/waves-background'
 import React from 'react'
 
 const BlogPage = () => {
-  const theme = "light";
+  
   return (
     <div className='relative w-full'>
       <div className="relative w-full flex items-center justify-center max-w-5xl h-[400px] my-24 mx-auto bg-background/80 rounded-lg overflow-hidden">
         <div className="absolute inset-0">
           <Waves
-            lineColor={theme === "dark" ? "rgba(255, 255, 255, 0.3)" : "rgba(0, 0, 0, 0.3)"}
+            // lineColor={theme === "dark" ? "rgba(255, 255, 255, 0.3)" : "rgba(0, 0, 0, 0.3)"}
             backgroundColor="transparent"
             waveSpeedX={0.02}
             waveSpeedY={0.01}

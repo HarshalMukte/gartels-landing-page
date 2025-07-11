@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import DottedMap from "dotted-map";
 import Image from "next/image";
+import { useTheme } from "@/context/theme-context";
 // import { useTheme } from "next-themes";
 
 interface MapProps {
@@ -21,8 +22,7 @@ export function WorldMap({
   const svgRef = useRef<SVGSVGElement>(null);
   const map = new DottedMap({ height: 100, grid: "diagonal" });
 
-  // const { theme } = useTheme();
-  const theme = "light";
+  const { theme } = useTheme();
 
   const svgMap = map.getSVG({
     radius: 0.22,
