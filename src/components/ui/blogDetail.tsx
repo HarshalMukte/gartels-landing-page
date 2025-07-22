@@ -35,13 +35,13 @@ const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
   }, [post.slug]);
 
   return (
-    <div className="py-12 md:py-20 bg-white">
+    <div className="py-16 md:py-24 bg-background max-w-7xl mx-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-7xl mx-auto"
         >
           {/* Hero section */}
           <div className="mb-10">
@@ -61,7 +61,7 @@ const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
             
             <p className="text-xl text-gray-600 mb-8">{post.description}</p>
             
-            <div className="relative h-72 md:h-96 w-full rounded-lg overflow-hidden shadow-lg mb-10">
+            <div className="relative h-72 md:h-96 w-full max-w-4xl rounded-lg overflow-hidden shadow-lg mb-10">
               <Image
                 src={post.image}
                 alt={post.title}

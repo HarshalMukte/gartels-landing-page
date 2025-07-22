@@ -1,5 +1,5 @@
 "use client";
-import BlogList from "@/components/BlogList";
+import BlogList from "@/components/blocks/blog-list";
 import { Waves } from "@/components/ui/waves-background";
 import { useTheme } from "@/context/theme-context";
 import blogData from "@/data/blogData.json";
@@ -14,8 +14,8 @@ export default function BlogPage() {
   );
 
   return (
-    <div className="pt-20 pb-16">
-      <div className="relative w-full flex items-center justify-center max-w-5xl h-[400px] my-20 mx-auto bg-background/80 rounded-lg overflow-hidden">
+    <div className="py-16 max-w-7xl mx-auto">
+      <div className="relative w-full flex items-center justify-center max-w-4xl h-[400px] my-4 md:my-16 mx-auto bg-background/80 rounded-lg overflow-hidden">
         <div className="absolute inset-0">
           <Waves
             lineColor={

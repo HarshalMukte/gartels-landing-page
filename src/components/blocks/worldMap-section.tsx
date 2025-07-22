@@ -2,6 +2,8 @@
 import { WorldMap } from "@/components/ui/world-map";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+// import SpinnerLoader from "./spinner";
+import { BoxLoader } from "../loaders/box-loader";
 
 function WorldMapComponent() {
   const [isReady, setIsReady] = useState(false);
@@ -14,8 +16,9 @@ function WorldMapComponent() {
 
   if (!isReady) {
     return (
-      <div className="flex items-center justify-center min-h-[200px]">
-        <span className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-300">har</span>
+      <div className="flex items-center justify-center min-h-[350px]">
+        {/* <SpinnerLoader /> */}
+        <BoxLoader />
       </div>
     );
   }

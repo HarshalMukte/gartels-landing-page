@@ -90,7 +90,7 @@ export function HeroSection({
           </div>
 
           {/* Image with Glow */}
-          <div className="relative pt-12">
+          <div className="relative pt-12" id="main-frame">
             <MockupFrame
               className="animate-appear opacity-0 delay-700"
               size="small"

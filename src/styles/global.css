@@ -2,6 +2,10 @@
 @import "tw-animate-css";
 @custom-variant dark (&:where(.dark, .dark *));
 
+*{
+  scroll-behavior: smooth;
+}
+
 :root {
   --primary: oklch(0.205 0 0);
   --max-width: 1280px;
@@ -36,13 +40,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
---brand: hsl(195, 100%, 60%);
---brand-foreground: hsl(195, 100%, 85%);
+  --brand: hsl(195, 100%, 60%);
+  --brand-foreground: hsl(195, 100%, 85%);
   --white: #ffffff;
---black: #000000;
---transparent: transparent;
---gradient-color: #8350e8;
---sparkles-color: #8350e8;
+  --black: #000000;
+  --transparent: transparent;
+  --gradient-color: #8350e8;
+  --sparkles-color: #8350e8;
 }
 
 .dark {
@@ -77,12 +81,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
---brand: hsl(195, 100%, 60%);
---gradient-color: #8350e8;
---sparkles-color: #ffffff;
+  --brand: hsl(195, 100%, 60%);
+  --gradient-color: #8350e8;
+  --sparkles-color: #ffffff;
 }
 
-@theme{
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
@@ -127,9 +131,11 @@
   --animate-appear: appear 0.5s ease-out forwards;
   --animate-appear-zoom: appear-zoom 0.5s ease-out forwards;
   --animate-aurora: aurora 60s linear infinite;
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-grid: grid-animation 15s linear infinite;
   --color-brand-foreground: var(--brand-foreground);
   --color-brand: var(--brand);
-   --color-white: #ffffff;
+  --color-white: #ffffff;
   --color-black: #000000;
   --color-transparent: transparent;
   --color-sparkles-color: var(----sparkles-color);
@@ -146,22 +152,40 @@
     }
   }
   @keyframes appear {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
     }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-   @keyframes aurora {
+  @keyframes aurora {
     from {
       background-position: 50% 50%, 50% 50%;
     }
     to {
       background-position: 350% 50%, 350% 50%;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 1rem));
+    }
+  }
+
+  @keyframes grid-animation {
+    from {
+      transform: translateY(-50%);
+    }
+    to {
+      transform: translateY(0);
     }
   }
 }

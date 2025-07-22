@@ -1,5 +1,5 @@
 'use client';
-import BlogCard from './ui/blogCard';
+import BlogCard from '../ui/blogCard';
 
 
 interface BlogPost {

@@ -1,4 +1,5 @@
 "use client"
+import ImmersiveScrollGallery from '@/components/blocks/immersive-scroll-gallery';
 import TimelineWrapper from '@/components/blocks/timeline-wrapper';
 import { AuroraBackground } from '@/components/ui/aurora-background';
 import { motion } from "framer-motion";
@@ -30,6 +31,9 @@ const AboutPage = () => {
       </motion.div>
     </AuroraBackground>
     <TimelineWrapper />
+     <div className="mx-auto relative min-h-dvh">
+        <ImmersiveScrollGallery />
+      </div>
       </>
   );
 }
