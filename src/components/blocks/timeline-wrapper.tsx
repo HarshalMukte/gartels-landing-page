@@ -148,7 +148,7 @@ function TimelineWrapper() {
     },
   ];
   return (
-    <div className="min-h-screen w-full relative">
+    <div className="min-h-screen w-full relative max-w-7xl mx-auto">
       <div className="w-full">
         <Timeline data={data} />
       </div>
