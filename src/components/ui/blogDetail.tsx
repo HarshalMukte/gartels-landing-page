@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect } from 'react';
-// Removed ReactMarkdown import
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 
 interface BlogPost {
   title: string;
@@ -23,12 +23,12 @@ interface BlogDetailProps {
 
 const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
   // Format date
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
-  
+
   // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -50,17 +50,22 @@ const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
               <span className="mx-2">•</span>
               <span>{post.author}</span>
               <span className="mx-2">•</span>
-              <Link href="/blog" className="text-blue-600 hover:text-blue-800 transition-colors">
+              <Link
+                href="/blog"
+                className="text-brand-foreground hover:text-brand transition-colors"
+              >
                 Back to Blog
               </Link>
             </div>
-            
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               {post.title}
             </h1>
-            
-            <p className="text-xl text-gray-600 mb-8">{post.description}</p>
-            
+
+            <p className="text-xl text-muted-foreground mb-8">
+              {post.description}
+            </p>
+
             <div className="relative h-72 md:h-96 w-full max-w-4xl rounded-lg overflow-hidden shadow-lg mb-10">
               <Image
                 src={post.image}
@@ -71,34 +76,50 @@ const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
               />
             </div>
           </div>
-          
+
           {/* Article content */}
-          <article className="prose prose-lg max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br>') }} />
+          <article
+            className="prose prose-lg max-w-none 
+              [&>p]:my-2 
+              [&>h1]:mt-6 [&>h1]:text-3xl [&>h1]:font-bold 
+              [&>h2]:mt-6 [&>h2]:text-2xl [&>h2]:font-semibold 
+              [&>h3]:mt-4 [&>h3]:text-xl [&>h3]:font-semibold 
+              [&>h4]:mt-4 [&>h4]:text-l [&>h4]:font-medium 
+            "
+          >
+            {" "}
+            <ReactMarkdown>{post.content}</ReactMarkdown>
           </article>
-          
           {/* Author bio */}
-          <div className="mt-16 p-6 bg-gray-50 rounded-lg">
+          <div className="mt-16 p-6 bg-gradient-to-br from-background via-muted/50 to-background border border-border/50 rounded-lg">
             <div className="flex items-center">
               <div className="flex-shrink-0 mr-4">
                 <div className="h-16 w-16 bg-blue-200 rounded-full flex items-center justify-center text-blue-800 font-bold text-xl">
-                  {post.author.split(' ').map(name => name[0]).join('')}
+                  {post.author
+                    .split(" ")
+                    .map((name) => name[0])
+                    .join("")}
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">{post.author}</h3>
+                <h3 className="text-lg font-semibold text-foreground">
+                  {post.author}
+                </h3>
                 <p className="text-gray-600">
-                  Industrial Engineering Expert at Gartels, specializing in spring design and manufacturing processes.
+                  Industrial Engineering Expert at Gartels, specializing in
+                  spring design and manufacturing processes.
                 </p>
               </div>
             </div>
           </div>
         </motion.div>
-        
+
         {/* Related articles section */}
         {relatedPosts.length > 0 && (
           <div className="mt-20">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Related Articles</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
+              Related Articles
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedPosts.map((relatedPost, index) => (
                 <motion.div
@@ -107,7 +128,7 @@ const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-lg shadow-md overflow-hidden"
+                  className="bg-gradient-to-br from-background via-muted/50 to-background border border-border/50 rounded-lg shadow-md overflow-hidden"
                 >
                   <Link href={`/blog/${relatedPost.slug}`}>
                     <div className="relative h-48">
@@ -119,7 +140,7 @@ const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="font-semibold text-gray-900 mb-2 hover:text-blue-700 transition-colors">
+                      <h3 className="font-semibold text-foreground mb-2 hover:text-brand transition-colors">
                         {relatedPost.title}
                       </h3>
                       <p className="text-sm text-gray-500">{formattedDate}</p>

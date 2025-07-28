@@ -1,0 +1,43 @@
+.letter {
+  opacity: 0;
+  animation: logo-bounce 2s infinite ease-in-out;
+}
+
+.line {
+  animation: moving-line 2s infinite ease-out;
+}
+
+@keyframes logo-bounce {
+  0% {
+    transform: translateX(-15vw);
+    opacity: 0;
+  }
+  33.3%,
+  66% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(15vw);
+    opacity: 0;
+  }
+}
+
+@keyframes moving-line {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  20% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  80% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}

@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @custom-variant dark (&:where(.dark, .dark *));
 
-*{
+* {
   scroll-behavior: smooth;
 }
 
@@ -81,7 +81,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  --brand: hsl(195, 100%, 60%);
+  /* --brand: hsl(195, 100%, 60%); */
+  --brand: hsl(195, 100%, 55%);
+  --brand-foreground: hsl(195, 95%, 65%);
   --gradient-color: #8350e8;
   --sparkles-color: #ffffff;
 }
@@ -133,6 +135,8 @@
   --animate-aurora: aurora 60s linear infinite;
   --animate-marquee: marquee 20s linear infinite;
   --animate-grid: grid-animation 15s linear infinite;
+  --animate-logo-bounce: logo-bounce 2.4s infinite ease-in-out;
+  --animate-moving-line: moving-line 2.4s infinite ease-in-out;
   --color-brand-foreground: var(--brand-foreground);
   --color-brand: var(--brand);
   --color-white: #ffffff;
@@ -151,6 +155,7 @@
       transform: scale(1);
     }
   }
+
   @keyframes appear {
     0% {
       opacity: 0;
@@ -197,4 +202,42 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+/* 🌐 Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 10px;
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted-foreground) var(--background);
+}
+
+/* 🔍 Custom Text Selection */
+::selection {
+  background: var(--brand);
+  color: var(--brand-foreground);
+}
+
+.dark ::selection {
+  background: var(--brand-foreground);
+  color: var(--background);
 }

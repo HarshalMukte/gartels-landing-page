@@ -9,24 +9,23 @@ function WorldMapComponent() {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Simulate heavy setup or wait for data/resources
-    const timer = setTimeout(() => setIsReady(true), 500); // adjust as needed
-    return () => clearTimeout(timer);
+    // const timer = setTimeout(() => setIsReady(true), 500); // adjust as needed
+    // return () => clearTimeout(timer);
+    setIsReady(true);
   }, []);
 
   if (!isReady) {
     return (
       <div className="flex items-center justify-center min-h-[350px]">
-        {/* <SpinnerLoader /> */}
         <BoxLoader />
       </div>
     );
   }
 
   return (
-    <div className="pb-40 dark:bg-black bg-white w-full">
+    <div className="pb-40 bg-background w-full">
       <div className="max-w-7xl mx-auto text-center">
-        <p className="font-bold text-xl md:text-4xl dark:text-white text-black">
+        <p className="font-bold text-xl md:text-4xl text-foreground">
           World{" "}
           <span className="text-neutral-400">
             {"Connectivity".split("").map((word, idx) => (

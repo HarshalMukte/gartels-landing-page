@@ -27,7 +27,7 @@ const BlogCard = ({ title, slug, date, author, image, description, index = 0 }: 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+      className="bg-gradient-to-br from-background via-muted/50 to-background border border-border/50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
     >
       <Link href={`/blog/${slug}`}>
         <div className="relative h-48 md:h-56">
@@ -44,11 +44,11 @@ const BlogCard = ({ title, slug, date, author, image, description, index = 0 }: 
             <span className="mx-2">•</span>
             <span>{author}</span>
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-700 transition-colors">
+          <h3 className="text-xl font-semibold text-foreground mb-2 hover:text-brand transition-colors">
             {title}
           </h3>
-          <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
-          <div className="flex items-center font-medium text-blue-700 hover:text-blue-800 transition-colors">
+          <p className="text-muted-foreground mb-4 line-clamp-3">{description}</p>
+          <div className="flex items-center font-medium text-brand hover:text-brand-foreground transition-colors">
             Read more
             <svg className="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

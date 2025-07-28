@@ -22,11 +22,11 @@ export function RetroGrid({
             "animate-grid",
             "[background-repeat:repeat] [background-size:60px_60px] [height:300vh] [transform-origin:100%_0_0] [width:600vw]",
             "[transform:translateY(-50%)]",
-            // Light Styles
-            "dark:[background-image:linear-gradient(to_right,rgba(0,0,0,0.4)_1px,transparent_0),linear-gradient(to_bottom,rgba(0,0,0,0.4)_1px,transparent_0)]",
+            // dark Styles
+            "[background-image:linear-gradient(to_right,rgba(0,0,0,0.6)_1px,transparent_0),linear-gradient(to_bottom,rgba(0,0,0,0.6)_1px,transparent_0)]",
 
-            // Dark styles
-            "[background-image:linear-gradient(to_right,rgba(255,255,255,0.4)_1.5px,transparent_0),linear-gradient(to_bottom,rgba(255,255,255,0.4)_1.5px,transparent_0)]"
+            // light styles
+            "dark:[background-image:linear-gradient(to_right,rgba(255,255,255,0.6)_1.5px,transparent_0),linear-gradient(to_bottom,rgba(255,255,255,0.6)_1.5px,transparent_0)]"
           )}
         />
       </div>

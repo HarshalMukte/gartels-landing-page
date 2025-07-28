@@ -6,8 +6,9 @@ import { RetroGrid } from "../ui/retro-grid";
 
 const CTASection = () => {
   return (
-    <section className="relative py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white overflow-hidden">
-      {/* <section className="relative bg-black py-20 text-white overflow-hidden">  */}
+    <section className="relative py-20 bg-gradient-to-b from-brand to-transparent text-foreground overflow-hidden">
+    {/* <section className="relative py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white overflow-hidden"> */}
+
       {/* Background pattern */}
       <RetroGrid />
 
@@ -22,7 +23,7 @@ const CTASection = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Ready to Upgrade Your Spring Solution?
             </h2>
-            <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl dark:text-blue-100 text-gray-500 mb-10 max-w-3xl mx-auto">
               Our engineering team is ready to help you find the perfect spring
               for your application. Get in touch for a consultation and custom
               quote.
@@ -31,13 +32,13 @@ const CTASection = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 href="/contact"
-                className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-4 rounded-md font-medium text-lg transition-colors duration-200"
+                className="bg-foreground text-background hover:text-foreground border border-foreground hover:bg-transparent px-8 py-4 rounded-md font-medium text-lg transition-colors duration-200"
               >
                 Request a Quote
               </Link>
               <Link
                 href="/about"
-                className="border border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-md font-medium text-lg transition-colors duration-200"
+                className="border border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-4 rounded-md font-medium text-lg transition-colors duration-200"
               >
                 Learn More About Us
               </Link>

@@ -1,39 +1,42 @@
 "use client";
 
-// import Image from "next/image";
 // import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/blocks/hero-section";
 import CompaniesWrapper from "@/components/blocks/companies-wrapper";
 import WorldMapComponent from "@/components/blocks/worldMap-section";
 import { TextPressure } from "@/components/ui/interactive-text-pressure";
-// import { Icons } from "@/components/ui/icons";
 import WhyChooseGartels from "@/components/blocks/why-choose-gartels";
 import { TestimonialsSection } from "@/components/blocks/testimonials-with-marquee";
 import { testimonialsData } from "@/data/testimonial-data";
 import CTASection from "@/components/blocks/cta-section";
-import { BoxLoader } from "@/components/loaders/box-loader";
-// import SpinnerLoader from "@/components/blocks/spinner";
 
-// Dynamic imports with loader
-// const WorldMapComponent = dynamic(
-//   () => import("@/components/blocks/worldMap-section"),
-//   { loading: () => <SpinnerLoader />, ssr: false }
-// );
+// Dynamically import heavy components
+// const CompaniesWrapper = dynamic(() => import("@/components/blocks/companies-wrapper"), {
+//   loading: () => <BoxLoader />,
+//   ssr: false,
+// });
+// const WorldMapComponent = dynamic(() => import("@/components/blocks/worldMap-section"), {
+//   loading: () => <BoxLoader />,
+//   ssr: false,
+// });
+// const WhyChooseGartels = dynamic(() => import("@/components/blocks/why-choose-gartels"), {
+//   loading: () => <BoxLoader />,
+//   ssr: false,
+// });
+// const TestimonialsSection = dynamic(() => import("@/components/blocks/testimonials-with-marquee"), {
+//   loading: () => <BoxLoader />,
+//   ssr: false,
+// });
+// const CTASection = dynamic(() => import("@/components/blocks/cta-section"), {
+//   loading: () => <BoxLoader />,
+//   ssr: false,
+// });
 
-// const CompaniesWrapper = dynamic(
-//   () => import("@/components/blocks/companies-wrapper"),
-//   { loading: () => <SpinnerLoader />, ssr: false }
-// );
-
-// const ImmersiveScrollGallery = dynamic(
-//   () => import("@/components/blocks/immersive-scroll-gallery"),
-//   { loading: () => <SpinnerLoader />, ssr: false }
-// );
 
 export default function Home() {
   return (
     <div>
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto">
         <HeroSection
           badge={{
             text: "Engineered to Perfection",
@@ -50,18 +53,10 @@ export default function Home() {
               href: "#main-frame",
               variant: "default",
             },
-            // {
-            //   text: "GitHub",
-            //   href: "/",
-            //   variant: "outline",
-            //   icon: <Icons.gitHub className="h-5 w-5" />,
-            // },
           ]}
           image={{
             light: "https://www.launchuicomponents.com/app-light.png",
             dark: "https://www.launchuicomponents.com/app-dark.png",
-            // light: "",
-            // dark: "",
             alt: "UI Components Preview",
           }}
         />
@@ -74,10 +69,6 @@ export default function Home() {
       </div>
       <div className="mx-auto relative max-w-7xl">
         <WhyChooseGartels />
-      </div>
-      <div className="flex items-center justify-center min-h-[350px]">
-        {/* <SpinnerLoader /> */}
-        <BoxLoader />
       </div>
       <div className="mx-auto relative max-w-7xl">
         <TestimonialsSection

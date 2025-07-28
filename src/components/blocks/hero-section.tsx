@@ -66,7 +66,7 @@ export function HeroSection({
           )}
 
           {/* Title */}
-          <h1 className="relative z-10 inline-block animate-appear bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-4xl font-semibold leading-tight text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
+          <h1 className="max-w-7xl relative z-10 inline-block animate-appear bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-4xl font-semibold leading-tight text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
             {title}
           </h1>
 
@@ -92,7 +92,7 @@ export function HeroSection({
           {/* Image with Glow */}
           <div className="relative pt-12" id="main-frame">
             <MockupFrame
-              className="animate-appear opacity-0 delay-700"
+              className="max-w-7xl animate-appear opacity-0 delay-700"
               size="small"
             >
               <Mockup type="responsive">

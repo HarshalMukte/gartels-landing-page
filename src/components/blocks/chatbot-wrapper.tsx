@@ -29,7 +29,7 @@ export function ExpandableChatWrapper() {
     },
     {
       id: 2,
-      content: "I have a question about the component library.",
+      content: "I have a question about the Company.",
       sender: "user",
     },
     {
@@ -86,9 +86,9 @@ export function ExpandableChatWrapper() {
         icon={<Bot className="h-6 w-6" />}
       >
         <ExpandableChatHeader className="flex-col text-center justify-center">
-          <h1 className="text-xl font-semibold">Chat with AI ✨</h1>
+          <h1 className="text-xl font-semibold">Chat with US ✨</h1>
           <p className="text-sm text-muted-foreground">
-            Ask me anything about the components
+            Ask me anything about the Company
           </p>
         </ExpandableChatHeader>
 

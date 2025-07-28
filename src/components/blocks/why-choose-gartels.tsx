@@ -61,7 +61,7 @@ const features = [
 
 const WhyChooseGartels = () => {
   return (
-    <section className="py-20 bg-white dark:bg-neutral-950">
+    <section className="py-20 bg-background ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,8 +70,8 @@ const WhyChooseGartels = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 "
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-foreground mb-4">Why Choose Gartels?</h2>
-          <p className="text-lg text-muted-foreground dark:text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose Gartels?</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             With decades of experience and a commitment to excellence, we deliver spring solutions that exceed expectations.
           </p>
         </motion.div>
@@ -85,11 +85,11 @@ const WhyChooseGartels = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             //   className=" bg-blue-50 rounded-lg p-6 border border-blue-100"
-              className="bg-gradient-to-b from-transparent via-muted/50 to-transparent rounded-lg p-6 border border-blue-100 dark:border-blue-200"
+              className="bg-gradient-to-b from-transparent via-muted/50 to-transparent rounded-lg p-6 border border-muted-foreground"
             >
-              <div className="text-blue-600 mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <div className="text-brand mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
+              <p className="text-gray-500">{feature.description}</p>
             </motion.div>
           ))}
         </div>

@@ -27,7 +27,7 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
       <section
         ref={ref}
         className={cn(
-          "py-16 w-full bg-gradient-to-b from-transparent via-muted/50 to-transparent",
+          "py-16 w-full relative",
           className
         )}
         {...props}
@@ -38,7 +38,7 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-2xl mx-auto text-center mb-12"
+            className="max-w-7xl mx-auto text-center mb-12"
           >
             <h2 className="text-3xl font-semibold mb-3 bg-gradient-to-r from-foreground via-foreground/80 to-foreground bg-clip-text text-transparent">
               {title}
@@ -49,7 +49,7 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
           </motion.div>
 
           {/* FAQ Items */}
-          <div className="max-w-2xl mx-auto space-y-2">
+          <div className="max-w-7xl mx-auto space-y-2">
             {items.map((item, index) => (
               <FaqItem
                 key={index}
@@ -111,6 +111,7 @@ const FaqItem = React.forwardRef<
         "group rounded-lg",
         "transition-all duration-200 ease-in-out",
         "border border-border/50",
+        "bg-gradient-to-r from-transparent via-muted/20 to-transparent",
         isOpen
           ? "bg-gradient-to-br from-background via-muted/50 to-background"
           : "hover:bg-muted/50"

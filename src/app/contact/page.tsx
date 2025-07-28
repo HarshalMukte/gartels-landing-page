@@ -31,7 +31,10 @@ const ContactPage = () => {
       <BackgroundPaths title="Contact Us" />
 
       {/* Contact Information & Form */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-950">
+      <section
+        id="contact-wrapper"
+        className="mx-auto relative max-w-7xl py-16 md:py-24 bg-white dark:bg-neutral-950"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Information */}
@@ -64,10 +67,10 @@ const ContactPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 bg-white rounded-lg shadow-md overflow-hidden"
+            className="mt-8 bg-background rounded-lg shadow-md overflow-hidden"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193759.45029480264!2d-89.76894494119308!3d39.76715436716549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x887352aff6dfe3a7%3A0x2a79be10e8bfa88e!2sSpringfield%2C%20IL!5e0!3m2!1sen!2sus!4v1663701348532!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.226084047832!2d72.77009047523319!3d20.16631001684116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be72bbb173a747f%3A0xf3c850700d7efaf6!2sGARTELS%20WERKE%20LIMITED!5e0!3m2!1sen!2sin!4v1753726393346!5m2!1sen!2sin"
               width="100%"
               height="300"
               style={{ border: 0 }}
@@ -79,16 +82,16 @@ const ContactPage = () => {
           </motion.div>
         </div>
         <FaqSection
-      title="Frequently Asked Questions"
-      description="Everything you need to know about our platform"
-      items={DEMO_FAQS}
-      contactInfo={{
-        title: "Still have questions?",
-        description: "We're here to help you",
-        buttonText: "Contact Support",
-        onContact: () => console.log("Contact support clicked"),
-      }}
-    />
+          title="Frequently Asked Questions"
+          description="Everything you need to know about our platform"
+          items={DEMO_FAQS}
+          contactInfo={{
+            title: "Still have questions?",
+            description: "We're here to help you",
+            buttonText: "Contact Support",
+            onContact: () => console.log("Contact support clicked"),
+          }}
+        />
       </section>
     </div>
   );
