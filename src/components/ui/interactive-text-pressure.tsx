@@ -3,6 +3,8 @@
 import * as React from "react";
 import { useEffect, useRef, useState } from "react";
 
+const MOBILE_BREAKPOINT = 768;
+
 interface TextPressureProps {
   text?: string;
   fontFamily?: string;
@@ -48,6 +50,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
   const [fontSize, setFontSize] = useState(minFontSize);
   const [scaleY, setScaleY] = useState(1);
   const [lineHeight, setLineHeight] = useState(1);
+  const [isTabletOrDesktop, setIsTabletOrDesktop] = useState(false);
 
   const chars = text.split("");
 
@@ -57,7 +60,22 @@ const TextPressure: React.FC<TextPressureProps> = ({
     return Math.sqrt(dx * dx + dy * dy);
   };
 
+  // Determine if screen is tablet or larger
   useEffect(() => {
+    const checkScreenSize = () => {
+      setIsTabletOrDesktop(window.innerWidth >= MOBILE_BREAKPOINT);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  // Mouse/touch tracking only for tablet/desktop
+  useEffect(() => {
+    if (!isTabletOrDesktop) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       cursorRef.current.x = e.clientX;
       cursorRef.current.y = e.clientY;
@@ -84,7 +102,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, []);
+  }, [isTabletOrDesktop]);
 
   const setSize = () => {
     if (!containerRef.current || !titleRef.current) return;
@@ -117,7 +135,10 @@ const TextPressure: React.FC<TextPressureProps> = ({
     return () => window.removeEventListener("resize", setSize);
   }, [scale, text]);
 
+  // Animate characters only on tablet/desktop
   useEffect(() => {
+    if (!isTabletOrDesktop) return;
+
     let rafId: number;
     const animate = () => {
       mouseRef.current.x += (cursorRef.current.x - mouseRef.current.x) / 15;
@@ -162,7 +183,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
 
     animate();
     return () => cancelAnimationFrame(rafId);
-  }, [width, weight, italic, alpha, chars.length]);
+  }, [width, weight, italic, alpha, chars.length, isTabletOrDesktop]);
 
   return (
     <div
@@ -210,7 +231,6 @@ const TextPressure: React.FC<TextPressureProps> = ({
         {chars.map((char, i) => (
           <span
             key={i}
-            // ref={(el) => (spansRef.current[i] = el)}
             ref={(el) => {
               spansRef.current[i] = el;
             }}

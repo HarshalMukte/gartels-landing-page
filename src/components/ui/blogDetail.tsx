@@ -35,7 +35,7 @@ const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
   }, [post.slug]);
 
   return (
-    <div className="py-16 md:py-24 bg-background max-w-7xl mx-auto">
+    <div className="py-18 md:py-24 bg-background max-w-7xl mx-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ const BlogDetail = ({ post, relatedPosts }: BlogDetailProps) => {
               <span className="mx-2">•</span>
               <Link
                 href="/blog"
-                className="text-brand-foreground hover:text-brand transition-colors"
+                className="text-brand hover:text-brand transition-colors"
               >
                 Back to Blog
               </Link>

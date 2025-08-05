@@ -6,6 +6,7 @@ import React from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Button } from "../ui/button";
 import Link from "next/link";
+// import { Shield } from "lucide-react";
 
 // Types
 interface iIPicture {
@@ -21,31 +22,31 @@ interface iImmersiveScrollGalleryProps {
 // Constants
 const DEFAULT_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1612801356940-8fdcde8aef61?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/images/hero-manufacturing.jpg",
     scale: null,
   },
   {
-    src: "https://images.unsplash.com/photo-1612801356940-8fdcde8aef61?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/images/project-4.jpg",
     scale: null,
   },
   {
-    src: "https://images.unsplash.com/photo-1612801356940-8fdcde8aef61?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/images/project-4.jpg",
     scale: null,
   },
   {
-    src: "https://images.unsplash.com/photo-1612801356940-8fdcde8aef61?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/images/springs-product.jpg",
     scale: null,
   },
   {
-    src: "https://images.unsplash.com/photo-1612801356940-8fdcde8aef61?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/images/project-4.jpg",
     scale: null,
   },
   {
-    src: "https://images.unsplash.com/photo-1612801356940-8fdcde8aef61?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/images/springs-product.jpg",
     scale: null,
   },
   {
-    src: "https://images.unsplash.com/photo-1612801356940-8fdcde8aef61?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/images/hero-manufacturing.jpg",
     scale: null,
   },
 ];
@@ -129,28 +130,23 @@ const ImmersiveScrollGallery: React.FC<iImmersiveScrollGalleryProps> = ({
             opacity: opacitySection2,
             scale: useTransform(scrollYProgress, [0.6, 0.8], [0.8, 1]),
           }}
-          className="w-full h-full flex items-center justify-center flex-col max-w-3xl mx-auto p-8 relative"
+          className="w-full h-full flex items-center justify-center text-justify flex-col max-w-3xl mx-auto p-4 md:p-8 relative"
         >
           <h1
-            className="text-[#4b3f33] text-2xl md:text-4xl font-thin py-4 font-tiemposHeadline lowercase"
+            className="text-[#4b3f33] text-2xl md:text-4xl font-thin py-4 font-tiemposHeadline"
             style={{ lineHeight: 1.5 }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            At Gartels, we believe in more than just products — we believe in purpose. 
+    Our journey is rooted in craftsmanship, integrity, and a relentless pursuit of quality. 
+    What started as a simple idea has grown into a thriving brand, powered by people who care deeply 
+    about the details. Join us as we continue to write the next chapter of our story — with you at the center of it.
           </h1>
           <Button variant={"default"} size="lg">
             {/* <a href={action.href} className="flex items-center gap-2">
                     {action.icon}
                     {action.text}
                   </a> */}
-				  <Link href={"/gallery"}>
-            		View Gallery
-				  </Link>
+            <Link href={"/gallery"}>View Gallery</Link>
           </Button>
         </motion.div>
       </div>

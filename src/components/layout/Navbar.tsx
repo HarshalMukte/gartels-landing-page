@@ -6,9 +6,12 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeSwitch } from "../ui/theme-switch-button";
+import Image from "next/image";
+import { useTheme } from "@/context/theme-context";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/products", label: "Products" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
@@ -18,6 +21,9 @@ export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme } = useTheme();
+
+  const logoImg = theme === "dark" ? "/images/gartel-logo-dark.png" : "/images/gartel-logo-light.png";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -34,13 +40,19 @@ export default function Navbar() {
       <header
         className={`transition-all duration-700 pointer-events-auto mx-auto w-full px-6 backdrop-blur ${
           scrolled 
-            ? "translate-y-0 md:translate-y-8 bg-background/80 shadow-lg border border-foreground/10 backdrop-blur py-2 max-w-2xl"
+            ? "translate-y-0 md:translate-y-8 bg-background/80 shadow-lg border border-foreground/10 backdrop-blur py-2 max-w-3xl"
             : "max-w-7xl py-4"
         } ${isMobileMenuOpen ? "h-dvh" : " md:rounded-[50px]"}`}
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-foreground tracking-tight">
+          <Link href="/" className="flex items-center justify-center gap-3 text-xl font-bold text-foreground tracking-tight">
+          <Image 
+            src={logoImg}
+            width={30}
+            height={30}
+            alt="logo"
+          />
             Gartels
           </Link>
 
@@ -106,7 +118,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-2 rounded-md hover:bg-accent transition-colors"
+                className={`block px-4 py-2 rounded-md hover:bg-accent transition-colors ${ pathname === link.href && 'border-b-1 border-brand bg-brand/15'}`}
               >
                 {link.label}
               </Link>

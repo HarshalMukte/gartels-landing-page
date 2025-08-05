@@ -6,7 +6,8 @@ import { RetroGrid } from "../ui/retro-grid";
 
 const CTASection = () => {
   return (
-    <section className="relative py-20 bg-gradient-to-b from-brand to-transparent text-foreground overflow-hidden">
+    // <section className="relative py-20 bg-gradient-to-b from-black dark:from-brand to-transparent text-brand dark:text-foreground overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-b from-brand to-transparent text-foreground overflow-hidden"> 
     {/* <section className="relative py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white overflow-hidden"> */}
 
       {/* Background pattern */}
@@ -45,7 +46,7 @@ const CTASection = () => {
             </div>
 
             <div className="mt-12 flex items-center justify-center space-x-8">
-              <div className="flex items-center">
+              <div className="flex items-center flex-col gap-2">
                 <svg
                   className="h-6 w-6 mr-2"
                   fill="none"
@@ -62,7 +63,7 @@ const CTASection = () => {
                 <span>Free Engineering Consultation</span>
               </div>
 
-              <div className="flex items-center">
+              <div className="flex items-center flex-col gap-2">
                 <svg
                   className="h-6 w-6 mr-2"
                   fill="none"
@@ -79,7 +80,7 @@ const CTASection = () => {
                 <span>Quick Turnaround</span>
               </div>
 
-              <div className="flex items-center">
+              <div className="flex items-center flex-col gap-2">
                 <svg
                   className="h-6 w-6 mr-2"
                   fill="none"

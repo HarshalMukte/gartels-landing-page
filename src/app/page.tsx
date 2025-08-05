@@ -7,7 +7,6 @@ import WorldMapComponent from "@/components/blocks/worldMap-section";
 import { TextPressure } from "@/components/ui/interactive-text-pressure";
 import WhyChooseGartels from "@/components/blocks/why-choose-gartels";
 import { TestimonialsSection } from "@/components/blocks/testimonials-with-marquee";
-import { testimonialsData } from "@/data/testimonial-data";
 import CTASection from "@/components/blocks/cta-section";
 
 // Dynamically import heavy components
@@ -39,7 +38,7 @@ export default function Home() {
       <div className="mx-auto">
         <HeroSection
           badge={{
-            text: "Engineered to Perfection",
+            text: "An ISO 9001:2015 Certified Company",
             action: {
               text: "About us",
               href: "/about",
@@ -55,8 +54,10 @@ export default function Home() {
             },
           ]}
           image={{
-            light: "https://www.launchuicomponents.com/app-light.png",
-            dark: "https://www.launchuicomponents.com/app-dark.png",
+            // light: "https://www.launchuicomponents.com/app-light.png",
+            light: "/images/hero-manufacturing.jpg",
+            dark: "/images/hero-manufacturing.jpg",
+            // dark: "https://www.launchuicomponents.com/app-dark.png",
             alt: "UI Components Preview",
           }}
         />
@@ -70,12 +71,13 @@ export default function Home() {
       <div className="mx-auto relative max-w-7xl">
         <WhyChooseGartels />
       </div>
-      <div className="mx-auto relative max-w-7xl">
-        <TestimonialsSection
+      <div className="mx-auto relative max-w-7xl p-4">
+        {/* <TestimonialsSection
           title="Trusted by developers worldwide"
           description="Join thousands of developers who are already building the future with our AI platform"
           testimonials={testimonialsData}
-        />
+        /> */}
+        <TestimonialsSection />
       </div>
       <div className="mx-auto relative">
         <CTASection />

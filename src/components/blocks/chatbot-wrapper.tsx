@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react"
 // import { Send, Bot, Paperclip, Mic, CornerDownLeft } from "lucide-react"
-import { Bot, Paperclip, Mic, CornerDownLeft } from "lucide-react"
+import { Bot, CornerDownLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   ChatBubble,
@@ -70,13 +70,13 @@ export function ExpandableChatWrapper() {
     }, 1000)
   }
 
-  const handleAttachFile = () => {
-    //
-  }
+  // const handleAttachFile = () => {
+  //   //
+  // }
 
-  const handleMicrophoneClick = () => {
-    //
-  }
+  // const handleMicrophoneClick = () => {
+  //   //
+  // }
 
   return (
     <>
@@ -141,7 +141,7 @@ export function ExpandableChatWrapper() {
               className="min-h-12 resize-none rounded-lg bg-background border-0 p-3 shadow-none focus-visible:ring-0"
             />
             <div className="flex items-center p-3 pt-0 justify-between">
-              <div className="flex">
+              {/* <div className="flex">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -159,7 +159,7 @@ export function ExpandableChatWrapper() {
                 >
                   <Mic className="size-4" />
                 </Button>
-              </div>
+              </div> */}
               <Button type="submit" size="sm" className="ml-auto gap-1.5">
                 Send Message
                 <CornerDownLeft className="size-3.5" />

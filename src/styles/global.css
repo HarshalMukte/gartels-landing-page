@@ -40,8 +40,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --brand: hsl(195, 100%, 60%);
+  /* --brand: hsl(195, 100%, 60%); */
+  /* --brand: hsl(199, 92%, 54%); */
+  --brand: hsl(208, 100%, 50%);
   --brand-foreground: hsl(195, 100%, 85%);
+  --brand-foreground-light: hsl(195, 100%, 95%);
   --white: #ffffff;
   --black: #000000;
   --transparent: transparent;
@@ -138,6 +141,7 @@
   --animate-logo-bounce: logo-bounce 2.4s infinite ease-in-out;
   --animate-moving-line: moving-line 2.4s infinite ease-in-out;
   --color-brand-foreground: var(--brand-foreground);
+  --color-brand-foreground-light: var(--brand-foreground-light);
   --color-brand: var(--brand);
   --color-white: #ffffff;
   --color-black: #000000;

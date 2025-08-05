@@ -39,7 +39,7 @@
 }
 
 .box > div {
-  --background: #5C8DF6;
+  --background: hsl(208, 100%, 50%);
   --top: auto;
   --right: auto;
   --bottom: auto;

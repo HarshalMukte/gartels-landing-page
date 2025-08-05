@@ -118,7 +118,7 @@ function Separator({
 
 export default function FormLayout() {
   return (
-    <div className="flex items-center justify-center p-10 pt-0">
+    <div className="flex items-center justify-center md:p-10 pt-0">
       <div className="sm:mx-auto sm:max-w-2xl">
         <h3 className="text-2xl font-semibold text-foreground dark:text-foreground">
           Register to workspace
